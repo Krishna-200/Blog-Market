@@ -1,7 +1,10 @@
 .container {
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  width: 100%;
+  background-position: center;
+  background-size: cover;
+  height: 90vh;
+  gap: 10rem;
   justify-content: center;
 }
 .email {
@@ -9,4 +12,80 @@
 }
 .username {
   color: black;
+}
+.loginForm {
+  margin-top: 150px;
+  height: 55%;
+  /* From https://css.glass */
+  backdrop-filter: blur(25px) saturate(0%);
+  -webkit-backdrop-filter: blur(25px) saturate(0%);
+  background-color: rgba(0, 0, 0, 0);
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.125);
+  font-size: 1.2rem;
+
+  padding: 25px;
+}
+.loginForm h2 {
+  display: flex;
+  justify-content: center;
+  color: #8e58ff;
+}
+.input {
+  outline: none;
+  margin: 12px 0;
+  box-sizing: border-box;
+  background-color: black;
+  border: 2px solid #8e58ff;
+  width: 300px;
+  height: 60px;
+  border-radius: 20px;
+  padding: 15px;
+  font-size: 1.2rem;
+  justify-content: flex-end;
+}
+.loginForm label {
+  text-transform: uppercase;
+  margin-right: 30px;
+}
+.child input {
+  margin-left: 55px;
+}
+.button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.button button {
+  width: 250px;
+  background-color: #8e58ff;
+  color: white;
+  font-size: 1.3rem;
+  font-weight: bold;
+  margin-top: 30px;
+  border-radius: 100px;
+  outline: none;
+  border: none;
+  height: 60px;
+  cursor: pointer;
+}
+.loginForm h4 {
+  font-size: 0.9rem;
+  text-align: end;
+  margin-top: 0px;
+  text-decoration: underline;
+}
+.loginForm h3 {
+  color: red;
+  text-transform: uppercase;
+  font-size: 1rem;
+  text-align: center;
+  margin-top: 30px;
+}
+.button p {
+  font-size: 0.8rem;
+  text-transform: capitalize;
+}
+.button Link {
 }

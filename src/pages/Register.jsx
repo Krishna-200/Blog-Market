@@ -1,6 +1,8 @@
 import { useState } from "react";
 import axios from "axios";
 import URL from "../url";
+import { Link } from "react-router-dom";
+
 import { useNavigate } from "react-router-dom";
 import css from "../styles/login.module.css";
 
@@ -32,32 +34,40 @@ const Register = () => {
 
   return (
     <div className={css.container}>
-      <h2>Register</h2>
-      <label>username:</label>
-      <input
-        className={css.username}
-        onChange={(e) => setUsername(e.target.value)}
-        type="text"
-        placeholder="enter your username"
-      />
-      <br />
-      <label>email:</label>
-      <input
-        className={css.email}
-        onChange={(e) => setEmail(e.target.value)}
-        type="text"
-        placeholder="enter your email"
-      />
-      <br />
-      <label>password:</label>
-      <input
-        onChange={(e) => setPassword(e.target.value)}
-        type="password"
-        placeholder="enter your password"
-      />
-      <br />
-      <button onClick={handleRegister}>register</button>
-      {error && <h3>something went wrong</h3>}
+      <div className={css.loginForm}>
+        <h2>Register</h2>
+        <div>
+          <label>username:</label>
+          <input
+            className={css.input}
+            onChange={(e) => setUsername(e.target.value)}
+            type="text"
+          />
+        </div>
+        <div className={css.child}>
+          <label>email:</label>
+          <input
+            className={css.input}
+            onChange={(e) => setEmail(e.target.value)}
+            type="text"
+          />
+        </div>
+        <div>
+          <label>password:</label>
+          <input
+            className={css.input}
+            onChange={(e) => setPassword(e.target.value)}
+            type="password"
+          />
+        </div>
+        <div className={css.button}>
+          <button onClick={handleRegister}>Register</button>
+          <p>
+            already have an account! <Link to="/login"> login here </Link>
+          </p>
+        </div>
+        {error && <h3>something went wrong</h3>}
+      </div>
     </div>
   );
 };

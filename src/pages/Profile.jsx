@@ -3,7 +3,8 @@ import ProfilePosts from "../components/ProfilePosts";
 import axios from "axios";
 import { IF, URL } from "../url";
 import { UserContext } from "../context/userContext";
-import { useNavigate, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
+import css from "../styles/Profile.module.css";
 
 const Profile = () => {
   const param = useParams().id;
@@ -43,7 +44,6 @@ const Profile = () => {
       setUpdated(false);
     }
   };
-
   const handleUserDelete = async () => {
     try {
       const res = await axios.delete(URL + "/api/user/" + user._id, {
@@ -76,36 +76,38 @@ const Profile = () => {
   }, [param]);
 
   return (
-    <div>
-      <div>
-        <div>
-          <h1>Your posts:</h1>
-          {posts?.map((p) => (
+    <div className={css.container}>
+      <div className={css.posts}>
+        <h1>Your posts:</h1>
+        {posts?.map((p) => (
+          <Link key={p._id} to={`/posts/post/${p._id}`}>
             <ProfilePosts key={p._id} p={p} />
-          ))}
+          </Link>
+        ))}
+      </div>
+      <div className={css.profile}>
+        <h1>Profile</h1>
+        <div>
+          <span> UserName:</span>
+          <input
+            onChange={(e) => setUsername(e.target.value)}
+            value={username}
+            placeholder="Your username"
+            type="text"
+          />
         </div>
-        {/* <div>
-          <div>
-            <h1>Profile</h1>
-            <input
-              onChange={(e) => setUsername(e.target.value)}
-              value={username}
-              placeholder="Your username"
-              type="text"
-            />
-            <input
-              onChange={(e) => setEmail(e.target.value)}
-              value={email}
-              placeholder="Your email"
-              type="email"
-            />
-            <div>
-              <button onClick={handleUserUpdate}>Update</button>
-              <button onClick={handleUserDelete}>Delete</button>
-            </div>
-            {updated && <h3>user updated successfully!</h3>}
-          </div>
-        </div> */}
+        <span> Email:</span>
+        <input
+          onChange={(e) => setEmail(e.target.value)}
+          value={email}
+          placeholder="Your email"
+          type="email"
+        />
+        <div className={css.button}>
+          <button onClick={handleUserUpdate}>Update</button>
+          <button onClick={handleUserDelete}>Delete</button>
+        </div>
+        {updated && <h3>user updated successfully!</h3>}
       </div>
     </div>
   );

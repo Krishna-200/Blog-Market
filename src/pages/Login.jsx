@@ -2,6 +2,7 @@ import { Navigate, useNavigate } from "react-router-dom";
 import { useContext, useState } from "react";
 import URL from "../url";
 import axios from "axios";
+import { Link } from "react-router-dom";
 import { UserContext } from "../context/userContext";
 import css from "../styles/login.module.css";
 
@@ -33,24 +34,34 @@ const Login = () => {
 
   return (
     <div className={css.container}>
-      <h2>Login</h2>
-      <label>email your address:</label>
-      <input
-        className={css.email}
-        onChange={(e) => setEmail(e.target.value)}
-        type="text"
-        placeholder="enter your email"
-      />
-      <br />
-      <label>Enter your password:</label>
-      <input
-        onChange={(e) => setPassword(e.target.value)}
-        type="password"
-        placeholder="enter your password"
-      />
-      <br />
-      <button onClick={handleLogin}>Login</button>
-      {error && <h3>something went wrong</h3>}
+      <div className={css.loginForm}>
+        <h2>Login</h2>
+        <div className={css.child}>
+          <label className={css.inputLlabel}>email:</label>
+          <input
+            className={css.input}
+            onChange={(e) => setEmail(e.target.value)}
+            type="text"
+          />
+        </div>
+        <div>
+          <label className={css.inputLabel}>password:</label>
+          <input
+            className={css.input}
+            onChange={(e) => setPassword(e.target.value)}
+            type="password"
+          />
+          <h4>Forgot your password ?</h4>
+        </div>
+        <div className={css.button}>
+          <button onClick={handleLogin}>Login</button>
+          <p>
+            new here! create your account{" "}
+            <Link to="/register"> register now </Link>
+          </p>
+        </div>
+        {error && <h3>something went wrong</h3>}
+      </div>
     </div>
   );
 };

@@ -1,0 +1,55 @@
+.container {
+  display: flex;
+  /* justify-content: center; */
+  /* align-items: center; */
+  margin-top: 20px;
+}
+.posts h1 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #8e58ff;
+  margin-bottom: 20px;
+  font-weight: bold;
+  margin-left: 80px;
+}
+.posts {
+  margin-right: 10px;
+  width: 70%;
+}
+.profile {
+  width: 40%;
+}
+.profile h1 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #8e58ff;
+}
+.profile input {
+  color: white;
+  outline: none;
+  /* width: 100%; */
+  padding: 10px;
+  border-radius: 4px;
+  margin-top: 6px;
+  background-color: black;
+  margin-bottom: 16px;
+  border-width: 0px 0px 2px;
+  border-color: #8e58ff;
+}
+.button button {
+  margin: 10px;
+  padding: 10px;
+  width: 150px;
+  border: none;
+  color: white;
+  border-radius: 20px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+}
+.button :nth-child(2) {
+  background-color: red;
+}
+.button :nth-child(1) {
+  background-color: #8e58ff;
+}

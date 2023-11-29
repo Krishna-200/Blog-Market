@@ -4,20 +4,23 @@ import { IF } from "../url";
 
 const ProfilePosts = ({ p }) => {
   return (
-    <div>
-      <div className={css.container}>
-        <div className={css.image}>
-          <img src={IF + p.photo} />
-        </div>
-        <div className={css.text}>
-          <span>{p.title}</span>
-          <span>
-            {p.username}
-            <p>{new Date(p.updatedAt).toString().slice(0, 15)}</p>
-            <p>{new Date(p.updatedAt).toString().slice(16, 24)}</p>
+    <div className={css.container}>
+      {/* console.log(post) */}
+      <div className={css.image}>
+        <img src={IF + p.photo} alt="" />
+      </div>
+      <div className={css.text}>
+        <span>{p.title.slice(0, 70)}.....</span>
+        <span>
+          @{p.username}
+          <span className={css.date}>
+            {new Date(p.updatedAt).toString().slice(0, 24)}
           </span>
-          <span>{p.desc.slice(0, 200)}</span>
-        </div>
+        </span>
+        <span>
+          {p.desc.slice(0, 240)}
+          ...Read More
+        </span>
       </div>
     </div>
   );
