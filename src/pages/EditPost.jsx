@@ -5,6 +5,7 @@ import { URL } from "../url";
 import { useNavigate, useParams } from "react-router-dom";
 import { UserContext } from "../context/userContext";
 import css from "../styles/CreatePost.module.css";
+import Navbar from "../components/Navbar";
 
 const EditPost = () => {
   const postId = useParams().id;
@@ -83,60 +84,63 @@ const EditPost = () => {
     setCats(updatedCats);
   };
   return (
-    <div className={css.container}>
-      <h2 className={css.heading}>Update a post </h2>
-      <form action="">
-        <label>Enter post Title:</label>
-        <input
-          className={css.title}
-          onChange={(e) => setTitle(e.target.value)}
-          value={title}
-          type="text"
-          placeholder="title"
-        />
-        <div>
-          <label>Upload Image:</label>
+    <div>
+      <Navbar />
+      <div className={css.container}>
+        <h2 className={css.heading}>Update a post </h2>
+        <form action="">
+          <label>Enter post Title:</label>
           <input
-            className={css.imageUpload}
-            onChange={(e) => setFile(e.target.files[0])}
-            type="file"
-          />
-        </div>
-        <div className={css.addCategories}>
-          <label>Enter categories:</label>
-          <input
-            value={cat}
-            onChange={(e) => setCat(e.target.value)}
+            className={css.title}
+            onChange={(e) => setTitle(e.target.value)}
+            value={title}
             type="text"
-            placeholder="add your category"
+            placeholder="title"
           />
-          <span onClick={addCategory}>Add</span>
-        </div>
-        <div>
-          {cats?.map((c, i) => (
-            <span key={i}>
-              <span className={css.categories}>
-                {c}
-                <span onClick={() => deleteCategory(i)}>
-                  <ImCross />
+          <div>
+            <label>Upload Image:</label>
+            <input
+              className={css.imageUpload}
+              onChange={(e) => setFile(e.target.files[0])}
+              type="file"
+            />
+          </div>
+          <div className={css.addCategories}>
+            <label>Enter categories:</label>
+            <input
+              value={cat}
+              onChange={(e) => setCat(e.target.value)}
+              type="text"
+              placeholder="add your category"
+            />
+            <span onClick={addCategory}>Add</span>
+          </div>
+          <div>
+            {cats?.map((c, i) => (
+              <span key={i}>
+                <span className={css.categories}>
+                  {c}
+                  <span onClick={() => deleteCategory(i)}>
+                    <ImCross />
+                  </span>
                 </span>
               </span>
-            </span>
-          ))}
-        </div>
-        <p> Enter your description:</p>
-        <textarea
-          className={css.textarea}
-          onChange={(e) => setDesc(e.target.value)}
-          value={desc}
-          cols="30"
-          rows="10"
-          placeholder="enter your description"
-        ></textarea>
-        <div className={css.createbutton}>
-          <button onClick={handleEdit}>Update post</button>
-        </div>
-      </form>
+            ))}
+          </div>
+          <label> Enter your description:</label>
+          <textarea
+            className={css.textarea}
+            onChange={(e) => setDesc(e.target.value)}
+            value={desc}
+            cols="30"
+            rows="10"
+            placeholder="enter your description"
+          ></textarea>
+          <div className={css.createbutton}>
+            <button onClick={handleEdit}>Update post</button>
+          </div>
+        </form>
+      </div>
     </div>
   );
 };

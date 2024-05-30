@@ -1,5 +1,5 @@
 .container {
-  /* background-color: black; */
+  background-color: black;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -11,15 +11,11 @@
 }
 
 .heading {
-  font-size: 2.2rem;
   color: white;
   text-decoration: none;
-  font-family: "Cookie", cursive;
+  /* font-family: "Cookie", cursive; */
+  font-family: "Alegreya", serif;
   font-weight: 700;
-}
-.heading :hover {
-  color: #8e58ff;
-  text-shadow: 0 0 10px #8e58ff, 0 0 20px #8e58ff;
 }
 
 /* flex items-center justify-center space-x-2 md:space-x-4 */
@@ -36,9 +32,9 @@
   color: white;
   text-decoration: none;
   font-weight: 500;
-  cursor: pointer;
+  /* cursor: pointer; */
 }
-.search {
+/* .search {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -48,8 +44,6 @@
   margin-right: 10px;
 }
 .search :nth-child(2) {
-  /* margin-left: 12px; */
-  /* background-color: black; */
   border: none;
   padding: 12px 12px;
   font-size: 0.9rem;
@@ -63,8 +57,8 @@
   padding: 8px 10px;
   margin-left: 15px;
   border-radius: 20px;
-}
+} */
 .links :hover {
-  color: #8e58ff;
+  color: rgb(209, 206, 206);
   text-shadow: 0 0 10px #8e58ff, 0 0 20px #8e58ff, 0 0 92px white;
 }

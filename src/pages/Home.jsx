@@ -6,6 +6,7 @@ import { Link, useLocation } from "react-router-dom";
 import Loader from "../components/Loader";
 import { UserContext } from "../context/userContext";
 import css from "../styles/HeroPosts.module.css";
+import Navbar from "../components/Navbar";
 
 const Home = () => {
   const { search } = useLocation();
@@ -39,6 +40,7 @@ const Home = () => {
 
   return (
     <div>
+      <Navbar />
       {loader ? (
         <Loader />
       ) : !noResults ? (

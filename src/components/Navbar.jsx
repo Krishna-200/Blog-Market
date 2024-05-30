@@ -28,7 +28,7 @@ const Navbar = () => {
     <div className={css.container}>
       {/* <hr /> */}
       <Link to="/" className={css.heading}>
-        <p>Blog Market</p>
+        <h2>DAILY ARTICLES</h2>
       </Link>
       {path === "/" && (
         <div className={css.search}>
@@ -38,15 +38,16 @@ const Navbar = () => {
             type="text"
             placeholder="search a post"
           />
-          <div
+          {/* <div
             onClick={() => navigate("?search=" + prompt)}
             className={css.searchButton}
           >
-            {/* <FaSearch /> */}Search
-          </div>
+            <FaSearch /> Search
+          </div> */}
         </div>
       )}
       <div className={css.links}>
+        <Link to="/allposts">All Posts</Link>
         <Link>About Us</Link>
         {user ? <Link to="/write">Write</Link> : <Link to="/login">Login</Link>}
         {user ? (

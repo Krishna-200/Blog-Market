@@ -1,107 +1,148 @@
+/* CreatePost.module.css */
+
 .container {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-}
-.heading {
-  /* text-transform: uppercase; */
-  color: #8e58ff;
-}
-.title {
-  background-color: black;
-  padding: 10px;
-  width: 500px;
-  outline: none;
-  border-width: 0px 0px 2px;
-  border-color: #8e58ff;
-  /* font-size: 1.2rem; */
-  margin-left: 12px;
-  margin-bottom: 30px;
-}
-.imageUpload {
-  margin-bottom: 30px;
-
-  margin-top: 15px;
-  color: #8e58ff;
-  border: 1px solid #8e58ff;
+  width: 80%;
+  margin: 0 auto;
+  background-color: white;
+  padding: 40px;
   border-radius: 10px;
-  /* width: 200px; */
-  font-size: 1rem;
-  color: white;
-  margin-left: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
+
+.heading {
+  color: #333;
+  margin-bottom: 20px;
+  font-size: 2rem;
+  font-weight: bold;
+  text-align: center;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+label {
+  color: #555;
+  margin-bottom: 10px;
+  font-size: 1.1rem;
+}
+
+.title,
+.imageUpload,
+.addCategories input,
+.textarea {
+  background-color: #f9f9f9;
+  color: #333;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1rem;
+  width: calc(100% - 20px);
+}
+
+.title:focus,
+.imageUpload:focus,
+.addCategories input:focus,
+.textarea:focus {
+  outline: none;
+  border-color: #8e58ff;
+}
+
+.imageUpload {
+  color: #333;
+}
+
 .imageUpload::-webkit-file-upload-button {
+  background: #8e58ff;
   color: white;
-  display: inline-block;
+  border: none;
+  border-radius: 5px;
   padding: 6px 12px;
   cursor: pointer;
-  background: #8e58ff;
 }
+
 .addCategories {
-  margin-top: 15px;
-  margin-bottom: 30px;
+  display: flex;
+  align-items: center;
 }
+
 .addCategories input {
-  background-color: black;
-  padding: 10px;
-  width: 400px;
-  outline: none;
-  border-width: 0px 0px 2px;
-  border-color: #8e58ff;
-  /* font-size: 1.2rem; */
-  margin-left: 12px;
+  flex-grow: 1;
+  margin-right: 10px;
 }
+
 .addCategories span {
   cursor: pointer;
-  margin-left: 20px;
   background-color: #8e58ff;
   padding: 10px;
-  border-radius: 15px;
-}
-.categories {
-  background-color: #8e58ff;
-  width: 100px;
-  padding: 7px;
-  margin-left: 10px;
   border-radius: 10px;
-}
-.categories :nth-child(1) {
-  height: 12px;
-  padding: 2px;
-  cursor: pointer;
-}
-.textarea {
-  font-size: 0.9rem;
-  color: grey;
-  padding: 20px;
-  background-color: black;
-  width: 1000px;
   color: white;
-  outline: none;
-  height: 400px;
-  border: 2px solid #8e58ff;
+  font-weight: bold;
+  transition: background-color 0.3s;
+}
+
+.addCategories span:hover {
+  background-color: #6a40c4;
+}
+
+.categories {
+  display: inline-flex;
+  align-items: center;
+  background-color: #8e58ff;
+  color: white;
+  padding: 7px 10px;
+  margin: 5px;
+  border-radius: 10px;
+  font-size: 0.9rem;
+}
+
+.categories span {
+  cursor: pointer;
+  margin-left: 10px;
+  color: white;
+  display: flex;
+  align-items: center;
+}
+
+.categories span svg {
+  margin-left: 5px;
+}
+
+.textarea {
+  height: 200px;
+  border: 1px solid #ccc;
   border-radius: 10px;
 }
+
 .createbutton {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 10px;
+  /* padding: 20px 0; */
 }
+
 .createbutton button {
-  text-align: center;
-  align-items: center;
   text-transform: uppercase;
   border: none;
-  width: 500px;
-  height: 40px;
-  outline: none;
+  width: 100%;
+  max-width: 300px;
+  height: 50px;
   background-color: #8e58ff;
-  padding: 10px;
   color: white;
-  border-radius: 15px;
+  border-radius: 25px;
   font-weight: bold;
   font-size: 1.1rem;
   cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.createbutton button:hover {
+  background-color: #6a40c4;
 }

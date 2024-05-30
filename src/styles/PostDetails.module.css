@@ -2,133 +2,187 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  /* width: 100%; */
+  padding: 20px;
+  background-color: #f4f4f9;
+  overflow: hidden !important;
 }
+
 .image {
-  width: 98.5vw;
-}
-.image img {
-  /* display: flex; */
   width: 100%;
-  height: 600px;
+  max-width: 1000px;
+  margin-bottom: 20px;
 }
-.title {
-  border-radius: 10px;
-  width: 1000px;
-  background-image: linear-gradient(#1e1e1e, #111);
-  padding-left: 70px;
-  padding-right: 70px;
-  padding-top: 10px;
+
+.image img {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
-.editButton {
-  display: flex;
-  align-items: center;
-}
-.editButton :nth-child(1),
-.editButton :nth-child(2) {
-  cursor: pointer;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  /* margin-left: 10px; */
-  background-color: #8e58ff;
-  border-radius: 10px;
-  color: white;
-  /* gap: 0.6rem; */
-  margin-left: 5px;
-  padding-right: 13px;
-  /* margin-right: 2px; */
-}
-.author {
-  margin: 10px 0px;
-  font-size: 13px;
-  padding-bottom: 10px;
-}
-.desc {
-  /* margin-top: 20px; */
-  border-radius: 10px;
-  background-image: linear-gradient(#1e1e1e, #111);
-  color: rgb(205, 193, 193);
-  padding: 20px 70px;
-  text-align: justify;
-}
+
 .text {
   display: flex;
   flex-direction: column;
-  width: 80%;
-  position: absolute;
-  top: 65%;
-  justify-content: center;
-  align-items: center;
-  gap: 1.5rem;
+  width: 100%;
+  max-width: 1000px;
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
 }
+
+.title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.title h1 {
+  font-size: 2rem;
+  color: #333;
+  margin: 0;
+}
+
+.editButton {
+  display: flex;
+  gap: 10px;
+}
+
+.editButton div {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  background-color: #8e58ff;
+  color: white;
+  border-radius: 8px;
+  padding: 5px 10px;
+  transition: background-color 0.3s;
+}
+
+.editButton div:hover {
+  background-color: #732fd9;
+}
+
+.author {
+  margin-top: 10px;
+  font-size: 0.9rem;
+  color: grey;
+}
+
+.desc {
+  margin-top: 20px;
+  color: #555;
+  line-height: 1.6;
+}
+
+.desc span {
+  color: black;
+}
+
 .categories {
+  display: inline-block;
+  margin-top: 10px;
   font-size: 0.8rem;
   background-color: #8e58ff;
-  padding: 8px;
-
-  margin-left: 10px;
-  border-radius: 15px;
-}
-.comment {
-  background-image: linear-gradient(#1e1e1e, #111);
-  border-radius: 10px;
-  display: flex;
-  padding: 10px;
-  flex-direction: column;
-  justify-content: center;
-  width: 90%;
-}
-.cHeader {
-  display: flex;
-  align-items: center;
-}
-.cAuthor {
-  font-size: 1.2rem;
-  padding-right: 4px;
-  color: #8e58ff;
-  /* background-color: #fff; */
-}
-.cHeader :nth-child(2) {
-  /* background-color: wheat; */
-  color: gray;
-  margin-left: 70px;
-  font-size: 12px;
+  color: white !important;
+  padding: 5px 10px;
+  border-radius: 12px;
+  margin-right: 5px;
 }
 
-.cDelete {
-  cursor: pointer;
-  margin-left: 10px;
-  font-size: 0.8rem;
-  border-radius: 25px;
-  padding: 4px 4px;
+.cWrite {
   display: flex;
-  height: 25px;
+  margin-top: 20px;
+  width: 100%;
+}
+
+.cWrite input {
+  flex: 1;
   border: 2px solid #8e58ff;
-  justify-content: center;
-  align-items: center;
-}
-.cText {
-  /* background-color: white; */
-  font-size: 0.8rem;
-  color: rgb(203, 203, 203);
-}
-
-.cWrite :nth-child(1) {
-  color: white;
   border-top-left-radius: 20px;
   border-bottom-left-radius: 20px;
-  border: 2px solid #8e58ff;
-  padding: 17px;
+  padding: 15px;
   outline: none;
-  /* height: 45px; */
-  background-color: black;
-  /* background-color: white; */
+  background-color: #f9f9f9;
+  color: #333;
 }
-.cWrite :nth-child(2) {
+
+.cWrite button {
   cursor: pointer;
   border-top-right-radius: 20px;
   border-bottom-right-radius: 20px;
   background-color: #8e58ff;
   border: none;
-  padding: 20px;
+  padding: 15px 20px;
+  color: white;
+  transition: background-color 0.3s;
+}
+
+.cWrite button:hover {
+  background-color: #732fd9;
+}
+
+.comment {
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 15px;
+  margin-top: 20px;
+  width: 95%;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.cHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.cAuthor {
+  font-size: 1rem;
+  color: #8e58ff;
+  font-weight: bold;
+}
+
+.cHeader span {
+  font-size: 0.9rem;
+  color: grey;
+  margin-left: 10px;
+}
+
+.cDelete {
+  cursor: pointer;
+  font-size: 0.8rem;
+  border-radius: 25px;
+  padding: 5px 10px;
+  border: 2px solid #8e58ff;
+  color: #8e58ff;
+  transition: background-color 0.3s, color 0.3s;
+  display: flex;
+  align-items: center;
+}
+
+.cDelete:hover {
+  background-color: #8e58ff;
+  color: white;
+}
+
+.cDelete p {
+  display: flex;
+  align-items: center;
+  margin: 0;
+}
+
+.cDelete p svg {
+  margin-right: 5px;
+}
+
+.cText {
+  margin-top: 10px;
+  font-size: 0.9rem;
+  color: #555;
+  line-height: 1.6;
 }

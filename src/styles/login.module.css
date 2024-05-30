@@ -1,91 +1,91 @@
 .container {
   display: flex;
   width: 100%;
-  background-position: center;
-  background-size: cover;
-  height: 90vh;
-  gap: 10rem;
-  justify-content: center;
-}
-.email {
-  color: black;
-}
-.username {
-  color: black;
-}
-.loginForm {
-  margin-top: 150px;
-  height: 55%;
-  /* From https://css.glass */
-  backdrop-filter: blur(25px) saturate(0%);
-  -webkit-backdrop-filter: blur(25px) saturate(0%);
-  background-color: rgba(0, 0, 0, 0);
-  border-radius: 12px;
-  border: 1px solid rgba(255, 255, 255, 0.125);
-  font-size: 1.2rem;
-
-  padding: 25px;
-}
-.loginForm h2 {
-  display: flex;
-  justify-content: center;
-  color: #8e58ff;
-}
-.input {
-  outline: none;
-  margin: 12px 0;
-  box-sizing: border-box;
-  background-color: black;
-  border: 2px solid #8e58ff;
-  width: 300px;
-  height: 60px;
-  border-radius: 20px;
-  padding: 15px;
-  font-size: 1.2rem;
-  justify-content: flex-end;
-}
-.loginForm label {
-  text-transform: uppercase;
-  margin-right: 30px;
-}
-.child input {
-  margin-left: 55px;
-}
-.button {
-  display: flex;
   justify-content: center;
   align-items: center;
-  flex-direction: column;
+  height: 92vh;
+  background-image: url("../public/jess-bailey-l3N9Q27zULw-unsplash.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
-.button button {
-  width: 250px;
-  background-color: #8e58ff;
-  color: white;
-  font-size: 1.3rem;
-  font-weight: bold;
-  margin-top: 30px;
-  border-radius: 100px;
-  outline: none;
-  border: none;
-  height: 60px;
-  cursor: pointer;
-}
-.loginForm h4 {
-  font-size: 0.9rem;
-  text-align: end;
-  margin-top: 0px;
-  text-decoration: underline;
-}
-.loginForm h3 {
-  color: red;
-  text-transform: uppercase;
-  font-size: 1rem;
+
+.loginForm {
+  background: rgba(255, 255, 255, 0.9); /* White background with transparency */
+  padding: 40px 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   text-align: center;
-  margin-top: 30px;
 }
-.button p {
-  font-size: 0.8rem;
+
+.loginForm h2 {
+  color: black;
+}
+
+.loginForm h4 {
   text-transform: capitalize;
+  font-weight: 700;
+  color: #333;
+  margin-top: 0;
 }
-.button Link {
+
+.inputs {
+  display: flex;
+  width: 300px;
+  color: black !important;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+
+.inputs input {
+  border: none;
+  outline: none;
+  background-color: transparent;
+  margin: 10px 0;
+  padding: 10px 0;
+  border-bottom: 2px solid #aaa;
+  font-size: 16px;
+  color: #333;
+  transition: border-color 0.3s;
+}
+
+.inputs input:focus {
+  border-bottom: 2px solid #333;
+}
+
+.loginForm h5 {
+  color: #666;
+  margin-bottom: 20px;
+  font-weight: 500;
+}
+
+.loginForm button {
+  width: 100%;
+  border: none;
+  outline: none;
+  border-radius: 25px;
+  padding: 10px;
+  font-weight: 600;
+  color: #fff;
+  background-color: #333;
+  margin-top: 20px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.loginForm button:hover {
+  background-color: #555;
+}
+
+.loginForm p {
+  text-transform: capitalize;
+  font-size: 14px;
+  color: #666;
+}
+
+.loginForm h3 {
+  text-transform: capitalize;
+  color: red;
+  font-size: 15px;
+  margin: 0;
 }

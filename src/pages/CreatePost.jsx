@@ -5,6 +5,7 @@ import axios from "axios";
 import { URL } from "../url";
 import { useNavigate } from "react-router-dom";
 import css from "../styles/CreatePost.module.css";
+import Navbar from "../components/Navbar";
 
 const CreatePost = () => {
   const [title, setTitle] = useState("");
@@ -18,15 +19,16 @@ const CreatePost = () => {
 
   const deleteCategory = (i) => {
     let updatedCats = [...cats];
-    updatedCats.splice(i);
+    updatedCats.splice(i, 1); // Fix to correctly remove the category
     setCats(updatedCats);
   };
 
   const addCategory = () => {
-    let updatedCats = [...cats];
-    updatedCats.push(cat);
-    setCat("");
-    setCats(updatedCats);
+    if (cat.trim()) {
+      // Prevent adding empty categories
+      setCats((prev) => [...prev, cat.trim()]);
+      setCat("");
+    }
   };
 
   const handleCreate = async (e) => {
@@ -39,14 +41,13 @@ const CreatePost = () => {
       categories: cats,
     };
     if (file) {
-      console.log(file.name);
       const data = new FormData();
       const filename = Date.now() + file.name;
       data.append("img", filename);
       data.append("file", file);
       post.photo = filename;
       try {
-        const imgUpload = await axios.post(URL + "/api/upload", data);
+        await axios.post(URL + "/api/upload", data);
       } catch (error) {
         console.log(error);
       }
@@ -56,64 +57,65 @@ const CreatePost = () => {
         withCredentials: true,
       });
       navigate("/posts/post/" + res.data._id);
-      console.log(res.data);
-      // console.log(res.data);
     } catch (error) {
       console.log(error);
     }
   };
 
   return (
-    <div className={css.container}>
-      <h2 className={css.heading}>Create a post: </h2>
-      <form action="">
-        <label>Enter post Title:</label>
-        <input
-          className={css.title}
-          onChange={(e) => setTitle(e.target.value)}
-          type="text"
-          placeholder=""
-        />
-        <div>
-          <label>Upload Image:</label>
+    <div>
+      <Navbar />
+      <div className={css.container}>
+        <h2 className={css.heading}>Create a post</h2>
+        <form onSubmit={handleCreate}>
+          <label>Enter post Title:</label>
           <input
-            className={css.imageUpload}
-            onChange={(e) => setFile(e.target.files[0])}
-            type="file"
-          />
-        </div>
-        <div className={css.addCategories}>
-          <label>Enter categories:</label>
-          <input
-            value={cat}
-            onChange={(e) => setCat(e.target.value)}
+            className={css.title}
+            onChange={(e) => setTitle(e.target.value)}
+            value={title}
             type="text"
+            placeholder="Enter the title"
           />
-          <span onClick={addCategory}>Add</span>
-        </div>
-        <div>
-          {cats?.map((c, i) => (
-            <span key={i}>
-              <span className={css.categories}>
+          <div>
+            <label>Upload Image:</label>
+            <input
+              className={css.imageUpload}
+              onChange={(e) => setFile(e.target.files[0])}
+              type="file"
+            />
+          </div>
+          <div className={css.addCategories}>
+            <label>Enter categories:</label>
+            <input
+              value={cat}
+              onChange={(e) => setCat(e.target.value)}
+              type="text"
+              placeholder="Enter a category"
+            />
+            <span onClick={addCategory}>Add</span>
+          </div>
+          <div>
+            {cats.map((c, i) => (
+              <span key={i} className={css.categories}>
                 {c}
                 <span onClick={() => deleteCategory(i)}>
                   <ImCross />
                 </span>
               </span>
-            </span>
-          ))}
-        </div>
-        <p> Enter your description:</p>
-        <textarea
-          className={css.textarea}
-          onChange={(e) => setDesc(e.target.value)}
-          cols="30"
-          rows="10"
-        ></textarea>
-        <div className={css.createbutton}>
-          <button onClick={handleCreate}>create post</button>
-        </div>
-      </form>
+            ))}
+          </div>
+          <label>Enter your description:</label>
+          <textarea
+            className={css.textarea}
+            onChange={(e) => setDesc(e.target.value)}
+            value={desc}
+            placeholder="Enter the description"
+          ></textarea>
+          <div className={css.createbutton}>
+            <button type="submit">Create Post</button>
+          </div>
+        </form>
+      </div>
     </div>
   );
 };

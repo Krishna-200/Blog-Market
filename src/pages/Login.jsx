@@ -5,6 +5,7 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 import { UserContext } from "../context/userContext";
 import css from "../styles/login.module.css";
+import Navbar from "../components/Navbar";
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -33,9 +34,35 @@ const Login = () => {
   };
 
   return (
-    <div className={css.container}>
-      <div className={css.loginForm}>
-        <h2>Login</h2>
+    <div>
+      <Navbar />
+      <div className={css.container}>
+        <div className={css.loginForm}>
+          <h2>Daily Articles</h2>
+          <h4>welcome back to daily articles</h4>
+          <div className={css.inputs}>
+            <input
+              onChange={(e) => setEmail(e.target.value)}
+              type="text"
+              placeholder="Enter Your Email"
+            />
+            <input
+              onChange={(e) => setPassword(e.target.value)}
+              type="password"
+              placeholder="Enter Your Password"
+            />
+          </div>
+          <button onClick={handleLogin}>Login</button>
+          <h5>Forgot your password ?</h5>
+          <p>
+            new here! create your account{" "}
+            <Link to="/register"> register now </Link>
+          </p>
+          {error && <h3>something went wrong</h3>}
+        </div>
+        {/* <div className={css.rightImage}></div> */}
+      </div>
+      {/* <div className={css.loginForm}>
         <div className={css.child}>
           <label className={css.inputLlabel}>email:</label>
           <input
@@ -61,7 +88,7 @@ const Login = () => {
           </p>
         </div>
         {error && <h3>something went wrong</h3>}
-      </div>
+      </div> */}
     </div>
   );
 };
